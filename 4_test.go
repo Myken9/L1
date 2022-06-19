@@ -43,8 +43,8 @@ func Service(workers int) {
 		go worker(ch)
 	}
 
-	ctx, c := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer c()
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer stop()
 
 	<-ctx.Done()
 	fmt.Println("Done")
