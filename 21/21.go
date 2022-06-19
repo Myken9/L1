@@ -6,10 +6,10 @@ import "fmt"
 
 func main() {
 	hammer := &hammer{4}
-	hammer.Nail()
+	hammer.nail()
 	phone := phone{7}
 	adapter := phoneAdapter{phone}
-	adapter.Nail()
+	adapter.nail()
 }
 
 type tool interface {
@@ -20,7 +20,7 @@ type hammer struct {
 	punchesForHammeringNail int
 }
 
-func (h *hammer) Nail() {
+func (h *hammer) nail() {
 	fmt.Printf("We need make %d punches to hammer a nail\n", h.punchesForHammeringNail)
 }
 
@@ -28,7 +28,7 @@ type phone struct {
 	punchesForBreak int
 }
 
-func (p *phone) Throw() {
+func (p *phone) throw() {
 	fmt.Printf("It will work %d times\n", p.punchesForBreak)
 }
 
@@ -36,6 +36,6 @@ type phoneAdapter struct {
 	phone
 }
 
-func (p phoneAdapter) Nail() {
-	p.Throw()
+func (p phoneAdapter) nail() {
+	p.throw()
 }

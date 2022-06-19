@@ -16,10 +16,10 @@ import (
 //Программа должна завершаться по нажатию Ctrl+C. Выбрать и обосновать способ завершения работы всех воркеров.
 
 func main() {
-	Service(10)
+	service(10)
 }
 
-func Service(workers int) {
+func service(workers int) {
 	ch := make(chan string)
 	randStr := func(length int) string {
 		rand.Seed(time.Now().UnixNano())

@@ -7,21 +7,21 @@ import "fmt"
 
 func main() {
 
-	h := Human{Name: "Bob", Age: 32}
-	a := Action{h}
-	a.SayInfo()
+	h := human{Name: "Bob", Age: 32}
+	a := action{h}
+	a.sayInfo()
 
 }
 
-type Human struct {
+type human struct {
 	Name string
 	Age  int
 }
 
-func (h *Human) SayInfo() {
+func (h *human) sayInfo() {
 	fmt.Println("My name is ", h.Name, ". I am ", h.Age, " years old")
 }
 
-type Action struct {
-	Human
+type action struct {
+	human
 }

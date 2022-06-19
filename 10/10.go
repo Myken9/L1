@@ -11,7 +11,7 @@ func main() {
 	newMap := Map{m: make(map[int][]float64)}
 
 	for _, v := range row {
-		newMap.Store(int(v/10)*10, v)
+		newMap.store(int(v/10)*10, v)
 	}
 	fmt.Println(newMap)
 }
@@ -20,11 +20,11 @@ type Map struct {
 	m map[int][]float64
 }
 
-func (m *Map) Load(key int) ([]float64, bool) {
+func (m *Map) load(key int) ([]float64, bool) {
 	val, ok := m.m[key]
 	return val, ok
 }
 
-func (m *Map) Store(key int, value float64) {
+func (m *Map) store(key int, value float64) {
 	m.m[key] = append(m.m[key], value)
 }

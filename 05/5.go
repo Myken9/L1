@@ -11,10 +11,10 @@ import (
 //а с другой стороны канала — читать. По истечению N секунд программа должна завершаться.
 
 func main() {
-	ReadService(10)
+	readService(10)
 }
 
-func ReadService(N time.Duration) {
+func readService(N time.Duration) {
 	randStr := func(length int) string {
 		rand.Seed(time.Now().UnixNano())
 		b := make([]byte, length)

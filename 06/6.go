@@ -57,6 +57,6 @@ func chanWaitForWriteStruct(in chan<- struct{}) {
 	fmt.Println("chanWaitForWriteStruct")
 }
 
-func Exit() {
+func exit() {
 	os.Exit(1)
 }

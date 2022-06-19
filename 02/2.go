@@ -10,10 +10,10 @@ import (
 //чисел взятых из массива (2,4,6,8,10) и выведет их квадраты в stdout.
 
 func main() {
-	Squares([]int{1, 2, 3, 4, 5})
+	squares([]int{1, 2, 3, 4, 5})
 }
 
-func Squares(n []int) {
+func squares(n []int) {
 	var wg sync.WaitGroup
 
 	wg.Add(len(n))

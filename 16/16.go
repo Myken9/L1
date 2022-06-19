@@ -8,19 +8,19 @@ import (
 
 func main() {
 	a := []int{25, 5, 9, 6, 8, 7, 2, 10, 1, 20}
-	Quicksort(a)
+	quicksort(a)
 	fmt.Println(a)
 }
 
-func Quicksort(ar []int) {
+func quicksort(ar []int) {
 	if len(ar) <= 1 {
 		return
 	}
 
 	split := partition(ar)
 
-	Quicksort(ar[:split])
-	Quicksort(ar[split:])
+	quicksort(ar[:split])
+	quicksort(ar[split:])
 }
 
 func partition(ar []int) int {

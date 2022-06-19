@@ -9,11 +9,11 @@ import (
 //из переменной типа interface{}.
 
 func main() {
-	fmt.Println(Type1(23.354))
-	fmt.Println(Type2(23.354))
+	fmt.Println(type1(23.354))
+	fmt.Println(type2(23.354))
 }
 
-func Type1(object interface{}) string {
+func type1(object interface{}) string {
 	switch object.(type) {
 	case int:
 		return "int"
@@ -36,6 +36,6 @@ func Type1(object interface{}) string {
 	}
 }
 
-func Type2(object interface{}) reflect.Type {
+func type2(object interface{}) reflect.Type {
 	return reflect.TypeOf(object)
 }
