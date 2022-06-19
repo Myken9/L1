@@ -1,13 +1,16 @@
-package L1
+package main
 
-import (
-	"testing"
-)
+import "fmt"
 
 //Дана последовательность чисел: 2,4,6,8,10. Найти сумму их квадратов(2^2+3^2+4^2….)
 //с использованием конкурентных вычислений.
 
-func SumSquares(n []int) (sum int) {
+func main() {
+	s := []int{2, 4, 6, 8, 10}
+	fmt.Println(sumSquares(s))
+}
+
+func sumSquares(n []int) (sum int) {
 	intCh := make(chan int)
 	square := func(d int, intCh chan<- int) {
 		intCh <- d * d
@@ -21,10 +24,4 @@ func SumSquares(n []int) (sum int) {
 		sum += <-intCh
 	}
 	return
-}
-
-func Test_SumSquares(t *testing.T) {
-	if s := []int{2, 4, 6, 8, 10}; SumSquares(s) != 220 {
-		t.Error("Expected 220, got ", SumSquares(s))
-	}
 }

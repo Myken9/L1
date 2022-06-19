@@ -1,15 +1,18 @@
-package L1
+package main
 
 import (
 	"context"
 	"fmt"
 	"math/rand"
-	"testing"
 	"time"
 )
 
 //Разработать программу, которая будет последовательно отправлять значения в канал,
 //а с другой стороны канала — читать. По истечению N секунд программа должна завершаться.
+
+func main() {
+	ReadService(10)
+}
 
 func ReadService(N time.Duration) {
 	randStr := func(length int) string {
@@ -44,8 +47,4 @@ func ReadService(N time.Duration) {
 
 	time.Sleep(time.Second * N)
 	stop()
-}
-
-func Test_ReadService(t *testing.T) {
-	ReadService(10)
 }

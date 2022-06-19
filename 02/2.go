@@ -1,14 +1,17 @@
-package L1
+package main
 
 import (
 	"os"
 	"strconv"
 	"sync"
-	"testing"
 )
 
 //Написать программу, которая конкурентно рассчитает значение квадратов
 //чисел взятых из массива (2,4,6,8,10) и выведет их квадраты в stdout.
+
+func main() {
+	Squares([]int{1, 2, 3, 4, 5})
+}
 
 func Squares(n []int) {
 	var wg sync.WaitGroup
@@ -22,8 +25,4 @@ func Squares(n []int) {
 		}(v)
 	}
 	wg.Wait()
-}
-
-func Test_Squares(t *testing.T) {
-	Squares([]int{1, 2, 3, 4, 5})
 }

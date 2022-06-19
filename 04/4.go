@@ -1,4 +1,4 @@
-package L1
+package main
 
 import (
 	"context"
@@ -6,7 +6,6 @@ import (
 	"math/rand"
 	"os"
 	"os/signal"
-	"testing"
 	"time"
 )
 
@@ -15,6 +14,10 @@ import (
 //Необходима возможность выбора количества воркеров при старте.
 //
 //Программа должна завершаться по нажатию Ctrl+C. Выбрать и обосновать способ завершения работы всех воркеров.
+
+func main() {
+	Service(10)
+}
 
 func Service(workers int) {
 	ch := make(chan string)
@@ -48,8 +51,4 @@ func Service(workers int) {
 
 	<-ctx.Done()
 	fmt.Println("Done")
-}
-
-func Test_worker(t *testing.T) {
-	Service(10)
 }

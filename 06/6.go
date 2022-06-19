@@ -1,42 +1,13 @@
-package L1
+package main
 
 import (
 	"context"
 	"fmt"
 	"os"
-	"testing"
 	"time"
 )
 
-//Реализовать все возможные способы остановки выполнения горутины.
-
-func closeChan(in <-chan interface{}) {
-	for range in {
-	}
-	fmt.Println("close chan")
-}
-
-func cancelCtx(ctx context.Context) {
-	<-ctx.Done()
-	fmt.Println("cancelCtx")
-}
-
-func chanWaitForRead(in <-chan interface{}) {
-	<-in
-	fmt.Println("chanWaitForRead")
-}
-
-func chanWaitForWriteStruct(in chan<- struct{}) {
-	in <- struct{}{}
-	fmt.Println("chanWaitForWriteStruct")
-}
-
-func Exit() {
-	os.Exit(1)
-}
-
-func Test_gorutinesStop(t *testing.T) {
-
+func main() {
 	//1 close chan from writer
 	ch := make(chan interface{})
 	go closeChan(ch)
@@ -63,5 +34,29 @@ func Test_gorutinesStop(t *testing.T) {
 	time.Sleep(time.Millisecond)
 	<-ch2
 	time.Sleep(time.Millisecond)
+}
 
+func closeChan(in <-chan interface{}) {
+	for range in {
+	}
+	fmt.Println("close chan")
+}
+
+func cancelCtx(ctx context.Context) {
+	<-ctx.Done()
+	fmt.Println("cancelCtx")
+}
+
+func chanWaitForRead(in <-chan interface{}) {
+	<-in
+	fmt.Println("chanWaitForRead")
+}
+
+func chanWaitForWriteStruct(in chan<- struct{}) {
+	in <- struct{}{}
+	fmt.Println("chanWaitForWriteStruct")
+}
+
+func Exit() {
+	os.Exit(1)
 }
