@@ -10,10 +10,10 @@ import (
 func main() {
 	t := time.Now()
 	fmt.Println("Start!")
-	Sleep(1 * time.Second)
+	sleep(1 * time.Second)
 	fmt.Printf("passed - %v\n", time.Since(t))
 }
 
-func Sleep(t time.Duration) {
+func sleep(t time.Duration) {
 	<-time.After(t)
 }
