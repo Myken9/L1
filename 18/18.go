@@ -9,6 +9,12 @@ import (
 //Реализовать структуру-счетчик, которая будет инкрементироваться в конкурентной среде.
 //По завершению программа должна выводить итоговое значение счетчика.
 
+func main() {
+	counter := &counter{i: 0}
+	worker(counter, 500)
+	fmt.Println("count " + strconv.Itoa(counter.i))
+}
+
 type counter struct {
 	i int
 	sync.Mutex
@@ -33,10 +39,4 @@ func worker(c *counter, iter int) {
 	}
 	c.Wait()
 
-}
-
-func main() {
-	counter := &counter{i: 0}
-	worker(counter, 500)
-	fmt.Println("count " + strconv.Itoa(counter.i))
 }
