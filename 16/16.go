@@ -24,7 +24,6 @@ func quicksort(ar []int) {
 }
 
 func partition(ar []int) int {
-	// Выбираем опорный элемент
 	pivot := ar[len(ar)/2]
 
 	left := 0

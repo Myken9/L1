@@ -11,8 +11,8 @@ import (
 
 func main() {
 	counter := &counter{i: 0}
-	worker(counter, 500)
-	fmt.Println("count " + strconv.Itoa(counter.i))
+	counter.worker(5000)
+
 }
 
 type counter struct {
@@ -27,7 +27,7 @@ func (c *counter) increment() {
 	c.Unlock()
 }
 
-func worker(c *counter, iter int) {
+func (c *counter) worker(iter int) {
 
 	for i := 1; i <= iter; i++ {
 		c.Add(1)
@@ -38,5 +38,5 @@ func worker(c *counter, iter int) {
 		}(i)
 	}
 	c.Wait()
-
+	fmt.Println("count " + strconv.Itoa(c.i))
 }

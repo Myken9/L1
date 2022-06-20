@@ -19,18 +19,10 @@ func type1(object interface{}) string {
 		return "int"
 	case string:
 		return "string"
-	case float64:
-		return "float64"
 	case bool:
 		return "bool"
-	case struct{}:
-		return "struct"
 	case chan interface{}:
 		return "channel"
-	case interface{}:
-		return "interface"
-	case nil:
-		return "nil"
 	default:
 		return "unknown"
 	}
