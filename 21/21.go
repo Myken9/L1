@@ -13,7 +13,7 @@ func main() {
 }
 
 type tool interface {
-	Nail()
+	nail()
 }
 
 type hammer struct {
